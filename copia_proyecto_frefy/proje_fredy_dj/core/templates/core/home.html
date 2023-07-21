@@ -1,0 +1,36 @@
+{% extends 'core/base.html'%}
+
+{% load static %}
+<title>{% block title %}Inicio{% endblock %}</title>
+
+<!--aqui va el header-->
+{% block background %}{% static 'core/img/home.jpg' %}{% endblock %}
+
+{% block headers %}
+    <h1>EL TALLER DEL CARPINTERO</h1>
+    <span class="subheading">--"Madera Y Arte En Un Solo Lugar"--</span>
+{% endblock %}    
+
+      
+{% block content%}   
+
+<div class="container">
+      <div class="row">
+        <div class="col-lg-10 col-md-10 mx-auto" style="text-align: center;">
+          <h1>Bienvenido a <strong>El Taller Del Carpintero</strong></h1>
+            <p>Con mas de 20 años de experiencia en carpinteria, Proporcionamos
+                  mano de obra de calidad para el mercado domestico y comercial.
+                  A través de esta plataforma, empresarios y consumidores responsables 
+                  podrán conocer sus productos y tener contacto directo para la creación y 
+                  fortalecimiento de lazos comerciales a nivel nacional e internacional.
+            </p>
+
+            <h2>Nuestros Servicios Incluyen</h2>
+            <p>Carpinteria para interiores y exteriores // Muebles hechos a mano // Renovacio Total //
+                  Mantenimientos a propiedades // Trabajos a la medida // Y mucho mas..
+            </p>
+        </div>
+      </div>
+    </div>
+                
+{% endblock %}

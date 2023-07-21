@@ -1,0 +1,123 @@
+{% extends 'core/base.html'%}
+
+{% load static %}
+<title>{% block title %} Registrate {%endblock%}</title>
+
+{% block background %}{% static 'core/img/registro.png' %}{% endblock %}
+
+{% block headers %}
+    <h1>SIGNUP</h1>
+{% endblock %}
+
+<!--aqui va el contenido-->
+{% block content%}
+<style>
+  .errorlist{
+    color:red;
+  }
+  label{
+    font-size: 20px;
+    font-family:Arial, Helvetica, sans-serif;
+    display: block;
+    font-weight: bolder;
+  }
+  h3{
+   color: black;
+   font-size: 50px;
+   font-family:'Courier New', Courier, monospace;
+   text-align: center;
+   font-weight: bolder;
+  }
+  .form-check-label{
+    color: rgb(94, 94, 241);
+    font-family: 'Times New Roman', Times, serif;
+    margin-top: 30px;
+  }
+  .boton{
+    margin: auto;
+    text-align: center;
+    margin-top: 40px;
+    width: 120%;
+  }
+  .boton p input{
+    background-color: rgb(223, 87, 28);
+    border: none;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+    color: aliceblue;
+    margin-right:10%;
+  }
+  .boton p input:hover{
+    background-color: rgb(124, 62, 35);
+    border: none;
+    color: aliceblue;
+  }
+  input{
+    width: 50%;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 20px;
+    padding: 5px;
+  }
+  .helptext{
+    display: block;
+  }
+  form{
+    margin: auto;
+    background-color: rgba(226, 222, 220, 0.331);
+    padding: 30px;
+    border-radius: 20px;
+    width: 75%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+footer a{
+  margin: auto;
+  text-align: center;
+  margin-left: 50px;
+}
+</style>
+<main role="main">
+    <div class="container">
+        <div class="col-md-9 mx-auto mb-5">
+            <form action="" method="POST">{% csrf_token %}
+                <h3>FORMULARIO REGISTRO</h3>
+                {{form.as_p}}
+                <div class="col-11">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
+                      <label class="form-check-label" for="invalidCheck2">Acepto los terminos y condiciones
+                      </label>
+                      <div class="invalid-feedback">
+                        You must agree before submitting.
+                      </div>                
+                    </div>
+                    <div class="boton">
+                <p><input type="submit" class="btn btn-primary" id="button" value="confirmar"></p>
+                    </div>
+                    <footer class="footer-card footer-card-signup">
+                      <a href="{% url 'login'%}" class="boton_regi">Iniciar sesion</a>
+                    </footer>
+            </form>
+        </div>
+    </div>
+</main>
+<style>
+    #button {
+        opacity: 0.5;
+      }
+  </style>
+<script>
+const checkbox = document.getElementById("invalidCheck2");
+const submitButton = document.getElementById("button");
+
+checkbox.addEventListener("change", function() {
+  if (this.checked) {
+    submitButton.style.opacity = "1";
+    submitButton.disabled = false;
+  } else {
+    submitButton.style.opacity = "0.5";
+    submitButton.disabled = true;
+  }
+});
+</script>
+{% endblock %}

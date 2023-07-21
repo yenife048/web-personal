@@ -1,0 +1,64 @@
+{% extends 'core/base.html'%}
+
+{% load static %}
+<title>{% block title %} Registro {%endblock%}</title>
+
+{% block background %}{% static 'core/img/registro.png' %}{% endblock %}
+
+{% block headers %}
+    <h1>REGISTRO</h1>
+{% endblock %}
+
+<!--aqui va el contenido-->
+{% block content%}
+<div class="section-registro">
+  <div class="card-sesion">
+    <div class="header-card header-card-log-in">
+      <h2 class="header-title">FORMULARIO DE REGISTRO</h2>
+    </div>
+    <form class="form-card form-signup" id="form_sign_up" method="post">{% csrf_token %}
+      <div class="container-input">
+        <input type="text" name="name" id="user_name" placeholder="Nombre" />
+        <span id="alert_name"></span>
+      </div>
+      <div class="container-input">
+        <input type="email" name="email" id="user_email" placeholder="Correo Electronico" />
+        <span id="alert_email"></span>
+      </div>
+      <div class="container-input">
+        <input
+          type="number"
+          name="phone-number"
+          id="user_phone_number"
+          placeholder="Numero Telefonico"
+        />
+        <span id="alert_phone_number"></span>
+      </div>
+      <div class="container-input">
+        <input
+          type="password"
+          name="password"
+          id="user_password"
+          placeholder="Contraseña"
+        />
+        <span id="alert_password"></span>
+      </div>
+      <div class="container-input">
+        <input
+          type="password"
+          name="password"
+          id="user_password"
+          placeholder="Contraseña (Confirmacion)"
+        />
+        <span id="alert_password"></span>
+      </div>
+      <button type="submit" class="button-form button-signup">Registrarse</button>
+    </form>
+    <footer class="footer-card footer-card-signup">
+      <a href="{% url 'login'%}" class="boton_regi">Iniciar sesion</a>
+    </footer>
+  </div>
+</div>
+
+  
+{% endblock %}

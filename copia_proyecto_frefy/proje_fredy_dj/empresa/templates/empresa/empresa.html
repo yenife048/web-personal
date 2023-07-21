@@ -1,0 +1,28 @@
+{% extends 'core/base.html'%}
+
+{% load static %}
+<title>{% block title %} Empresa {%endblock%}</title>
+
+{% block background %}{% static 'core/img/empresaco.jpeg' %}{% endblock %}
+
+{% block headers %}
+    <h1>EMPRESA</h1>
+{% endblock %}
+
+<!--aqui va el contenido-->
+{% block content%}
+
+{% for empresa in empresas %}
+<div class="container_contenido">
+<h1 class="titulo-empresa">{{empresa.title}}</h1>
+<div class="section-content">
+    {{empresa.contenido|safe}}
+    {% if user.is_authenticated %}
+    <p><a href="{% url 'admin:empresa_empresa_change' empresa.id %}" class="editar" target="_blank">EDITAR</a></p>
+    {% endif %} 
+</div>
+</div>
+
+{% endfor %}
+
+{% endblock %}

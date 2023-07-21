@@ -1,0 +1,47 @@
+{% extends 'core/base.html'%}
+
+
+{% load static %}
+
+<title>{% block title %} Productos {%endblock%}</title>
+
+{% block background %}{% static 'core/img/producto.jpeg' %}{% endblock %}
+
+{% block headers %}
+    <h1>PRODUCTOS</h1>
+{% endblock %}
+
+{% block content%}
+<h1 class="data-table"><strong>DATA TABLE</h1></strong>
+         <div class="container pt-2">
+    <table id="example" class="table table-striped" style="width:100%">
+        <thead>
+            <tr>
+                <th>Nombre producto</th>
+                <th>Imagen</th>
+                <th>Descripcion Producto</th>
+                <th>Precio</th>
+            </tr>            
+        </thead>
+        <tbody>
+            <tr>
+        {% for project in prod %}
+                <td>{{project.title}}</td>
+                <td><img src="{{project.image.url}}" alt="" style="width: 45%; height:45%;"></td>
+                <td>{{project.descripcion}}</td>
+                <td>{{project.precio}}</td>
+            </tr>
+            {% endfor %}
+
+        </tbody>
+        <tfoot>
+            <tr>
+                <th>Nombre producto</th>
+                <th>Descripcion Producto</th>
+                <th>Precio</th>
+            </tr>
+        </tfoot>
+    </table>
+</div>
+
+{% endblock %}

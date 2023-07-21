@@ -1,0 +1,54 @@
+{% extends 'core/base.html'%}
+{% load static %}
+
+<!--aqui va el titulo en la parte superior de la pestaña-->
+<title>{% block title %} Acerca De {% endblock %}</title>
+
+<!--aqui va configurada llamado la url de la imagen-->
+{% block background %}{% static 'core/img/acerca.jpg' %}{% endblock %}
+
+
+<!--aqui se modifica una parte del header-->
+{% block headers %}
+    <h1>ACERCA DE</h1>
+    <span class="subheading">Biografia</span>
+{% endblock %}
+
+<!--aqui va parte del contenido-->
+{% block content%}
+             <div class="container">
+    <!-- Proyecto -->
+    <div class="row project">  	
+        <div class="col-lg-4 col-md-4 offset-lg-1">
+            <img class="img-fluid" src="{% static 'core/img/acerca1.jpg'%}" alt="">
+        </div>
+      <div class="col-lg-7 col-md-8">
+            <h2 class="section-heading title">Servicio Personalizado</h2>   
+        <p>El taller del carpintero es una empresa dedicada a la producción y comercialización de maderas, cuenta con una trayectoria de 20 años en el sector maderero.
+Nuestro principal objetivo es ofrecer siempre productos de alta calidad, cumpliendo al máximo con los requerimientos de nuestros clientes.</p>
+        <p><a href="http://google.com">Más información</a></p>
+        </div>
+    </div>
+    <!-- Proyecto -->
+    <div class="row project">  	
+        <div class="col-lg-4 col-md-4 offset-lg-1">
+            <img class="img-fluid" src="{% static 'core/img/acerca2.png'%}" alt="">
+        </div>
+      <div class="col-lg-7 col-md-8">
+            <h2 class="section-heading title">Mision</h2>   
+        <p>Ofrecer a  nuestros clientes productos de alta calidad y  un excelente  servicio basado en la calidez humana, logrando siempre su satisfacción.</p>
+        <p><a href="http://google.com">Más información</a></p>
+        </div>
+    </div>
+    <div class="row project">  	
+        <div class="col-lg-4 col-md-4 offset-lg-1">
+            <img class="img-fluid" src="{% static 'core/img/acerca3.jpg'%}" alt="">
+        </div>
+      <div class="col-lg-7 col-md-8">
+            <h2 class="section-heading title">Vision</h2>   
+        <p>Crecer en el mercado siendo reconocidos por la excelencia en la entrega y calidad de nuestros productos.</p>
+        <p><a href="http://google.com">Más información</a></p>
+        </div>
+    </div>
+    </div>
+{% endblock %}

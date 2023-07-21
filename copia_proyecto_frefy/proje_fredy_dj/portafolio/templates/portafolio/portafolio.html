@@ -1,0 +1,41 @@
+{% extends 'core/base.html'%}
+
+
+{% load static %}
+<title>{% block title %} Portafolio {%endblock%}</title>
+
+
+{% block background %}{% static 'core/img/portafolio.jpg' %}{% endblock %}
+
+{% block headers %}
+    <h1>PORTAFOLIO</h1>
+    <span class="subheading">Productos</span>
+{% endblock %}
+
+<!--aqui va el contenido-->
+{% block content%}
+
+<div class="container-portafolio">
+
+{% for project in projects %}
+<!--{{projects}}-->
+
+ <!-- Contenido Principal -->
+ <!--<div class="container">-->
+    <!-- Proyecto --> 
+
+        <div class="card mt-5" style="width: 18rem;">
+            <img src="{{project.image.url}}" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">{{project.title}}</h5>
+                {% if project.precio %}
+                <p class="card-text">${{project.precio}}</p>
+                {% endif %}
+                <p class="card-text">{{project.descripcion}}</p>
+                <a href="{{project.link}}" class="btn btn-primary">Mas informacion</a>
+            </div>
+        </div>
+        
+    {% endfor %}
+    </div>
+{% endblock %}
